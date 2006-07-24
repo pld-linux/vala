@@ -1,9 +1,5 @@
-#
-# Conditional build:
-%bcond_with	tests		# build with tests
-%bcond_without	tests		# build without tests
-#
 Summary:	GObject-based language compiler
+Summary(pl):	Kompilator jêzyka opartego na bibliotece GObject
 Name:		vala
 Version:	0.0.1
 Release:	0.1
@@ -29,6 +25,22 @@ gobject-introspection is ready.
 
 The syntax of Vala is similar to C#, modified to better fit the
 GObject type system.
+
+%description -l pl
+Vala to nowy jêzyk programowania, którego celem jest udostêpnienie
+cech nowoczesnych jêzyków programowania programistom GNOME bez
+wymuszania dodatkowych wymagañ co do ¶rodowiska uruchomieniowego i
+u¿ywania API innego ni¿ w aplikacjach i bibliotekach napisanych w C.
+
+valac - kompilator jêzyka Vala - to napisany w sobie samym kompilator
+t³umacz±cy kod ¼ród³owy w jêzyku Vala na pliki ¼ród³owe i nag³ówkowe w
+C. U¿ywa systemu typów GObject do tworzenia klas i interfejsów
+zadeklarowanych w kodzie ¼ród³owym w jêzyku Vala. Planowane jest tak¿e
+generowanie plików GIDL, kiedy system gobject-introspection bêdzie
+gotowy.
+
+Sk³adnia jêzyka Vala jest podobna do C#, zmodyfikowana tak, aby lepiej
+pasowaæ do systemu typów GObject.
 
 %prep
 %setup -q
