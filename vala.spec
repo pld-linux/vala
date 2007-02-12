@@ -1,5 +1,5 @@
 Summary:	GObject-based language compiler
-Summary(pl.UTF-8):   Kompilator języka opartego na bibliotece GObject
+Summary(pl.UTF-8):	Kompilator języka opartego na bibliotece GObject
 Name:		vala
 Version:	0.0.5
 Release:	0.1
