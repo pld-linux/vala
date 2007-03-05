@@ -1,12 +1,12 @@
 Summary:	GObject-based language compiler
 Summary(pl.UTF-8):	Kompilator języka opartego na bibliotece GObject
 Name:		vala
-Version:	0.0.6
+Version:	0.0.7
 Release:	1
 License:	LGPL 2.1
 Group:		Applications
 Source0:	http://www.paldo.org/vala/%{name}-%{version}.tar.bz2
-# Source0-md5:	ca965ea793853dfd599fda79a48f17bb
+# Source0-md5:	585c1804d77406e07ad7136fade23837
 URL:		http://www.paldo.org/vala/
 BuildRequires:	glib2-devel >= 2.10.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
