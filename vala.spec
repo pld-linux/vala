@@ -3,12 +3,14 @@ Summary(pl.UTF-8):	Kompilator języka opartego na bibliotece GObject
 Name:		vala
 Version:	0.1.1
 Release:	1
-License:	LGPL 2.1
+License:	LGPL v2+
 Group:		Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/vala/0.1/vala-0.1.1.tar.bz2
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/vala/0.1/%{name}-%{version}.tar.bz2
 # Source0-md5:	a32990252a244259b042b3c63321e797
 URL:		http://www.paldo.org/vala/
-BuildRequires:	glib2-devel >= 2.10.0
+BuildRequires:	bison
+BuildRequires:	glib2-devel >= 1:2.10.0
+BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -58,15 +60,19 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
+
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_libdir}/libvala.so.*.*.*
+%attr(755,root,root) %{_libdir}/libvala.so
+%{_libdir}/libvala.la
 %{_includedir}/vala-1.0
-%{_prefix}/lib/libvala.la
-%attr(755,root,root) %{_prefix}/lib/libvala.so.0.0.0
 %{_pkgconfigdir}/vala-1.0.pc
-%{_mandir}/man1/valac.1*
 %dir %{_datadir}/vala
 %dir %{_datadir}/vala/vapi
 %{_datadir}/vala/vapi/*.vala
 %{_datadir}/vala/vapi/*.deps
+%{_mandir}/man1/valac.1*
