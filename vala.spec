@@ -1,12 +1,12 @@
 Summary:	GObject-based language compiler
 Summary(pl.UTF-8):	Kompilator języka opartego na bibliotece GObject
 Name:		vala
-Version:	0.2.0
+Version:	0.3.1
 Release:	1
 License:	LGPL v2+
 Group:		Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/vala/0.2/%{name}-%{version}.tar.bz2
-# Source0-md5:	deeb28d6bbad4e46ebbf01c8332fe7d0
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/vala/0.3/%{name}-%{version}.tar.bz2
+# Source0-md5:	6a5f1d82f7aeb67805c28ee762db896d
 URL:		http://www.paldo.org/vala/
 BuildRequires:	bison
 BuildRequires:	glib2-devel >= 1:2.10.0
@@ -44,6 +44,18 @@ gotowy.
 Składnia języka Vala jest podobna do C#, zmodyfikowana tak, aby lepiej
 pasować do systemu typów GObject.
 
+%package apidocs
+Summary:	vala API documentation
+Summary(pl.UTF-8):	Dokumentacja API vala
+Group:		Documentation
+Requires:	gtk-doc-common
+
+%description apidocs
+vala API documentation.
+
+%description apidocs -l pl.UTF-8
+Dokumentacja API vala.
+
 %prep
 %setup -q
 
@@ -76,3 +88,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/vala/vapi/*.vapi
 %{_datadir}/vala/vapi/*.deps
 %{_mandir}/man1/valac.1*
+
+%files apidocs
+%defattr(644,root,root,755)
+%{_datadir}/devhelp/books/vala
