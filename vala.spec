@@ -48,7 +48,7 @@ pasować do systemu typów GObject.
 Summary:	vala API documentation
 Summary(pl.UTF-8):	Dokumentacja API vala
 Group:		Documentation
-Requires:	gtk-doc-common
+Requires:	devhelp
 
 %description apidocs
 vala API documentation.
