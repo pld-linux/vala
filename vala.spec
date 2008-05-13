@@ -48,6 +48,7 @@ pasować do systemu typów GObject.
 Summary:	vala API documentation
 Summary(pl.UTF-8):	Dokumentacja API vala
 Group:		Documentation
+BuildRequires:	libxslt-progs
 Requires:	devhelp
 
 %description apidocs
