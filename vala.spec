@@ -10,6 +10,7 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/vala/0.3/%{name}-%{version}.tar.
 URL:		http://www.paldo.org/vala/
 BuildRequires:	bison
 BuildRequires:	glib2-devel >= 1:2.10.0
+BuildRequires:	libxslt-progs
 BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -48,7 +49,6 @@ pasować do systemu typów GObject.
 Summary:	vala API documentation
 Summary(pl.UTF-8):	Dokumentacja API vala
 Group:		Documentation
-BuildRequires:	libxslt-progs
 Requires:	devhelp
 
 %description apidocs
