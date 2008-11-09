@@ -7,11 +7,15 @@ License:	LGPL v2+
 Group:		Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/vala/0.5/%{name}-%{version}.tar.bz2
 # Source0-md5:	0051ae1f2ef967ce21e77889719daad1
+Patch0:	%{name}-0.5.1-2004.patch
 URL:		http://www.paldo.org/vala/
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	glib2-devel >= 1:2.12.0
 BuildRequires:	gtk+2-devel >= 2:2.10.0
+BuildRequires:	libtool
 BuildRequires:	libxslt-progs
 BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -61,9 +65,17 @@ Dokumentacja API vala.
 
 %prep
 %setup -q
+%patch0 -p0
 
 %build
-%configure
+%{__libtoolize}
+%{__aclocal}
+%{__autoconf}
+%{__autoheader}
+%{__automake}
+%configure \
+	--enable-vapigen \
+	--enable-gen-project
 %{__make}
 
 %install
@@ -92,6 +104,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/vala/vapi/*.vapi
 %{_datadir}/vala/vapi/*.deps
 %{_mandir}/man1/valac.1*
+%attr(755,root,root) %{_libdir}/vala/gen-introspect
+%{_mandir}/man1/vala-gen-introspect.1
+%{_mandir}/man1/vapigen.1
+%dir %{_datadir}/vala/licenses
+%{_datadir}/vala/licenses/*
 
 %files apidocs
 %defattr(644,root,root,755)
