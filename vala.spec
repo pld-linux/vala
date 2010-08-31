@@ -79,8 +79,12 @@ Dokumentacja API vala.
 %install
 rm -rf $RPM_BUILD_ROOT
 
+install -d $RPM_BUILD_ROOT%{_datadir}/vala/vapi
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -97,6 +101,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/vala-0.10
 %{_pkgconfigdir}/vala-0.10.pc
 %{_datadir}/aclocal/vala.m4
+%dir %{_datadir}/vala
+%dir %{_datadir}/vala/vapi
 %dir %{_datadir}/vala-0.10
 %dir %{_datadir}/vala-0.10/vapi
 %{_datadir}/vala-0.10/vapi/*.vapi
