@@ -2,12 +2,12 @@
 Summary:	GObject-based language compiler
 Summary(pl.UTF-8):	Kompilator języka opartego na bibliotece GObject
 Name:		vala
-Version:	0.9.8
+Version:	0.10.0
 Release:	1
 License:	LGPL v2+
 Group:		Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/vala/0.9/%{name}-%{version}.tar.bz2
-# Source0-md5:	bb0c56845d0da349cbfd71d8645876f4
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/vala/0.10/%{name}-%{version}.tar.bz2
+# Source0-md5:	1e38cdc951d2b43e49084a6d5ad19e9d
 URL:		http://live.gnome.org/Vala
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -80,8 +80,12 @@ Dokumentacja API vala.
 %install
 rm -rf $RPM_BUILD_ROOT
 
+install -d $RPM_BUILD_ROOT%{_datadir}/vala/vapi
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -92,12 +96,13 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/libvala-*.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libvala-*.so.0
-%attr(755,root,root) %{_libdir}/libvala-*.so
-%{_libdir}/libvala-*.la
+%attr(755,root,root) %{_libdir}/libvala-%{major_ver}.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libvala-%{major_ver}.so.0
+%attr(755,root,root) %{_libdir}/libvala-%{major_ver}.so
 %{_includedir}/vala-%{major_ver}
 %{_pkgconfigdir}/vala-%{major_ver}.pc
+%dir %{_datadir}/vala
+%dir %{_datadir}/vala/vapi
 %dir %{_datadir}/vala-%{major_ver}
 %dir %{_datadir}/vala-%{major_ver}/vapi
 %{_datadir}/vala-%{major_ver}/vapi/*.vapi
