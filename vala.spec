@@ -100,7 +100,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %ghost %{_libdir}/libvala-%{major_ver}.so.0
 %attr(755,root,root) %{_libdir}/libvala-%{major_ver}.so
 %{_includedir}/vala-%{major_ver}
-%{_pkgconfigdir}/vala-%{major_ver}.pc
+%{_pkgconfigdir}/libvala-%{major_ver}.pc
 %dir %{_datadir}/vala
 %dir %{_datadir}/vala/vapi
 %dir %{_datadir}/vala-%{major_ver}
