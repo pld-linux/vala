@@ -3,7 +3,7 @@ Summary:	GObject-based language compiler
 Summary(pl.UTF-8):	Kompilator języka opartego na bibliotece GObject
 Name:		vala
 Version:	0.12.0
-Release:	1
+Release:	2
 Epoch:		1
 License:	LGPL v2+
 Group:		Applications
@@ -18,6 +18,7 @@ BuildRequires:	glib2-devel >= 1:2.14.0
 BuildRequires:	libtool
 BuildRequires:	libxslt-progs
 BuildRequires:	pkgconfig
+Conflicts:	gdk-pixbuf2 < 2.23.3-1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
