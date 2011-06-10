@@ -5,7 +5,7 @@ Name:		vala
 # NOTE: 0.11.x is development branch
 Version:	0.10.4
 Release:	1
-Epoch:		1
+Epoch:		2
 License:	LGPL v2+
 Group:		Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/vala/0.10/%{name}-%{version}.tar.bz2
