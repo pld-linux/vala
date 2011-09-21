@@ -4,7 +4,7 @@ Summary(pl.UTF-8):	Kompilator języka opartego na bibliotece GObject
 Name:		vala
 Version:	0.12.1
 Release:	1
-Epoch:		1
+Epoch:		2
 License:	LGPL v2+
 Group:		Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/vala/0.12/%{name}-%{version}.tar.bz2
