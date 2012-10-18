@@ -10,16 +10,17 @@ Group:		Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/vala/0.18/%{name}-%{version}.tar.xz
 # Source0-md5:	06a95d6a6466b3583b59fe956cc75486
 URL:		http://live.gnome.org/Vala
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	bison
 BuildRequires:	flex
-BuildRequires:	glib2-devel >= 1:2.16.0
+BuildRequires:	glib2-devel >= 1:2.18.0
 BuildRequires:	libtool
 BuildRequires:	libxslt-progs
 BuildRequires:	pkgconfig
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
+Requires:	glib2 >= 1:2.18.0
 Conflicts:	gdk-pixbuf2 < 2.23.3-1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -98,7 +99,16 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/vala
+%attr(755,root,root) %{_bindir}/vala-%{major_ver}
+%attr(755,root,root) %{_bindir}/vala-gen-introspect
+%attr(755,root,root) %{_bindir}/vala-gen-introspect-%{major_ver}
+%attr(755,root,root) %{_bindir}/valac
+%attr(755,root,root) %{_bindir}/valac-%{major_ver}
+%attr(755,root,root) %{_bindir}/vapicheck
+%attr(755,root,root) %{_bindir}/vapicheck-%{major_ver}
+%attr(755,root,root) %{_bindir}/vapigen
+%attr(755,root,root) %{_bindir}/vapigen-%{major_ver}
 %attr(755,root,root) %{_libdir}/libvala-%{major_ver}.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libvala-%{major_ver}.so.0
 %attr(755,root,root) %{_libdir}/libvala-%{major_ver}.so
@@ -113,12 +123,12 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/vala-%{major_ver}/vapi
 %{_datadir}/vala-%{major_ver}/vapi/*.vapi
 %{_datadir}/vala-%{major_ver}/vapi/*.deps
-%{_mandir}/man1/valac.1*
-%{_mandir}/man1/valac-%{major_ver}.1*
 %dir %{_libdir}/vala-%{major_ver}
 %attr(755,root,root) %{_libdir}/vala-%{major_ver}/gen-introspect-%{major_ver}
 %{_mandir}/man1/vala-gen-introspect.1*
 %{_mandir}/man1/vala-gen-introspect-%{major_ver}.1*
+%{_mandir}/man1/valac.1*
+%{_mandir}/man1/valac-%{major_ver}.1*
 %{_mandir}/man1/vapigen.1*
 %{_mandir}/man1/vapigen-%{major_ver}.1*
 %{_aclocaldir}/vala.m4
