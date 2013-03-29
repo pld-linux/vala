@@ -83,7 +83,6 @@ Dokumentacja API vala.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 install -d $RPM_BUILD_ROOT%{_datadir}/vala/vapi
 
 %{__make} install \
@@ -99,6 +98,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc AUTHORS ChangeLog MAINTAINERS NEWS README THANKS
 %attr(755,root,root) %{_bindir}/vala
 %attr(755,root,root) %{_bindir}/vala-%{major_ver}
 %attr(755,root,root) %{_bindir}/vala-gen-introspect
