@@ -1,27 +1,26 @@
-%define	major_ver	0.24
+%define	major_ver	0.26
 Summary:	GObject-based language compiler
 Summary(pl.UTF-8):	Kompilator języka opartego na bibliotece GObject
 Name:		vala
-Version:	0.24.0
-Release:	2
+Version:	0.26.0
+Release:	1
 Epoch:		2
 License:	LGPL v2+
 Group:		Development/Languages
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/vala/0.24/%{name}-%{version}.tar.xz
-# Source0-md5:	beddeff9c06d3c278988b237da0e7401
-Patch0:		%{name}-atk-update.patch
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/vala/0.26/%{name}-%{version}.tar.xz
+# Source0-md5:	a418f9ffacdf4ab1e2ecf52c7a73bfea
 URL:		http://live.gnome.org/Vala
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	bison
 BuildRequires:	flex
-BuildRequires:	glib2-devel >= 1:2.18.0
+BuildRequires:	glib2-devel >= 1:2.24.0
 BuildRequires:	libtool
 BuildRequires:	libxslt-progs
 BuildRequires:	pkgconfig
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
-Requires:	glib2 >= 1:2.18.0
+Requires:	glib2 >= 1:2.24.0
 Conflicts:	gdk-pixbuf2 < 2.23.3-1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -70,7 +69,6 @@ Dokumentacja API vala.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__libtoolize}
@@ -79,8 +77,7 @@ Dokumentacja API vala.
 %{__autoheader}
 %{__automake}
 %configure \
-	--disable-silent-rules \
-	--enable-vapigen
+	--disable-silent-rules
 %{__make}
 
 %install
