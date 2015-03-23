@@ -1,14 +1,14 @@
-%define	major_ver	0.26
+%define	major_ver	0.28
 Summary:	GObject-based language compiler
 Summary(pl.UTF-8):	Kompilator języka opartego na bibliotece GObject
 Name:		vala
-Version:	0.26.2
-Release:	2
+Version:	0.28.0
+Release:	1
 Epoch:		2
 License:	LGPL v2+
 Group:		Development/Languages
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/vala/0.26/%{name}-%{version}.tar.xz
-# Source0-md5:	cb712cc5785e2133d58af9e54b2c79db
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/vala/0.28/%{name}-%{version}.tar.xz
+# Source0-md5:	8d4ceac3451a0d5497e7be38e5e4c2ad
 URL:		http://live.gnome.org/Vala
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.11
