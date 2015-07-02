@@ -3,7 +3,7 @@ Summary:	GObject-based language compiler
 Summary(pl.UTF-8):	Kompilator języka opartego na bibliotece GObject
 Name:		vala
 Version:	0.28.0
-Release:	1
+Release:	2
 Epoch:		2
 License:	LGPL v2+
 Group:		Development/Languages
@@ -60,6 +60,9 @@ Summary:	vala API documentation
 Summary(pl.UTF-8):	Dokumentacja API vala
 Group:		Documentation
 Requires:	devhelp
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description apidocs
 vala API documentation.
