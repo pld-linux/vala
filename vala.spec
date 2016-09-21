@@ -1,16 +1,16 @@
-%define	major_ver	0.32
+%define	major_ver	0.34
 Summary:	GObject-based language compiler
 Summary(pl.UTF-8):	Kompilator języka opartego na bibliotece GObject
 Name:		vala
-Version:	0.32.1
+Version:	0.34.0
 Release:	1
 Epoch:		2
 License:	LGPL v2+
 Group:		Development/Languages
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/vala/0.32/%{name}-%{version}.tar.xz
-# Source0-md5:	755881770bffac020b5ea5f625fbe528
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/vala/0.34/%{name}-%{version}.tar.xz
+# Source0-md5:	007bac576467e2e6aae786a5597e102b
 URL:		http://live.gnome.org/Vala
-BuildRequires:	autoconf >= 2.50
+BuildRequires:	autoconf >= 2.65
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	bison
 BuildRequires:	flex
@@ -116,8 +116,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libvala-%{major_ver}.so
 %{_includedir}/vala-%{major_ver}
 %{_pkgconfigdir}/libvala-%{major_ver}.pc
-%{_npkgconfigdir}/vapigen-%{major_ver}.pc
-%{_npkgconfigdir}/vapigen.pc
+%{_pkgconfigdir}/vapigen-%{major_ver}.pc
+%{_pkgconfigdir}/vapigen.pc
 %dir %{_datadir}/vala
 %{_datadir}/vala/Makefile.vapigen
 %dir %{_datadir}/vala/vapi
