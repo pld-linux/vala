@@ -15,9 +15,9 @@ BuildRequires:	automake >= 1:1.11
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	glib2-devel >= 1:2.32.0
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:2.2.6
 BuildRequires:	libxslt-progs
-BuildRequires:	pkgconfig
+BuildRequires:	pkgconfig >= 1:0.21
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires:	glib2 >= 1:2.32.0
