@@ -1,14 +1,17 @@
-%define	major_ver	0.34
+# Conditional build:
+%bcond_with	bootstrap	# bootstrap build
+
+%define	major_ver	0.36
 Summary:	GObject-based language compiler
 Summary(pl.UTF-8):	Kompilator języka opartego na bibliotece GObject
 Name:		vala
-Version:	0.34.6
+Version:	0.36.0
 Release:	1
 Epoch:		2
 License:	LGPL v2+
 Group:		Development/Languages
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/vala/0.34/%{name}-%{version}.tar.xz
-# Source0-md5:	d3482a6a077d8338fd736b6b2c87b876
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/vala/0.36/%{name}-%{version}.tar.xz
+# Source0-md5:	94fdcfd8940dd0226b151c2b29d574e9
 URL:		http://live.gnome.org/Vala
 BuildRequires:	autoconf >= 2.65
 BuildRequires:	automake >= 1:1.11
@@ -19,6 +22,7 @@ BuildRequires:	libtool >= 2:2.2.6
 BuildRequires:	libxslt-progs
 BuildRequires:	pkgconfig >= 1:0.21
 BuildRequires:	tar >= 1:1.22
+%{!?with_bootstrap:BuildRequires:	vala >= 2:0.25.1}
 BuildRequires:	xz
 Requires:	glib2 >= 1:2.32.0
 Conflicts:	gdk-pixbuf2 < 2.23.3-1
@@ -100,7 +104,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog MAINTAINERS NEWS README THANKS
+%doc AUTHORS ChangeLog NEWS README THANKS
 %attr(755,root,root) %{_bindir}/vala
 %attr(755,root,root) %{_bindir}/vala-%{major_ver}
 %attr(755,root,root) %{_bindir}/vala-gen-introspect
