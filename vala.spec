@@ -1,3 +1,4 @@
+#
 # Conditional build:
 %bcond_with	bootstrap	# bootstrap build
 
@@ -5,13 +6,13 @@
 Summary:	GObject-based language compiler
 Summary(pl.UTF-8):	Kompilator języka opartego na bibliotece GObject
 Name:		vala
-Version:	0.38.2
+Version:	0.38.3
 Release:	1
 Epoch:		2
 License:	LGPL v2+
 Group:		Development/Languages
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/vala/0.38/%{name}-%{version}.tar.xz
-# Source0-md5:	720846116448fc20b0ab3c0921e19798
+# Source0-md5:	827a421a272014c015d7b6b9c9efddbf
 URL:		http://live.gnome.org/Vala
 BuildRequires:	autoconf >= 2.65
 BuildRequires:	automake >= 1:1.11
@@ -148,7 +149,7 @@ rm -rf $RPM_BUILD_ROOT
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 
-%post -n valadoc -p /sbin/ldconfig
+%post	-n valadoc -p /sbin/ldconfig
 %postun	-n valadoc -p /sbin/ldconfig
 
 %files
@@ -174,6 +175,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/vala
 %{_datadir}/vala/Makefile.vapigen
 %dir %{_datadir}/vala/vapi
+%{_datadir}/vala/vapi/libvala-%{major_ver}.vapi
 %dir %{_datadir}/vala-%{major_ver}
 %dir %{_datadir}/vala-%{major_ver}/vapi
 %{_datadir}/vala-%{major_ver}/vapi/*.vapi
@@ -219,6 +221,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n vala-valadoc
 %defattr(644,root,root,755)
-%{_datadir}/vala/vapi/libvala-0.38.vapi
 %{_datadir}/vala/vapi/valadoc-0.38.deps
 %{_datadir}/vala/vapi/valadoc-0.38.vapi
