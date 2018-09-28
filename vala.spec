@@ -2,18 +2,18 @@
 # Conditional build:
 %bcond_with	bootstrap	# bootstrap build
 
-%define	major_ver	0.40
+%define	major_ver	0.42
 Summary:	GObject-based language compiler
 Summary(pl.UTF-8):	Kompilator języka opartego na bibliotece GObject
 Name:		vala
-Version:	0.40.7
+Version:	0.42.2
 Release:	1
 Epoch:		2
 License:	LGPL v2+
 Group:		Development/Languages
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/vala/0.40/%{name}-%{version}.tar.xz
-# Source0-md5:	6491555b2031704945d03418f74baf74
-URL:		http://live.gnome.org/Vala
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/vala/0.42/%{name}-%{version}.tar.xz
+# Source0-md5:	e28ad84b16351a3e41eacabdeadaaf8a
+URL:		https://wiki.gnome.org/Projects/Vala
 BuildRequires:	autoconf >= 2.65
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	bison
@@ -24,7 +24,7 @@ BuildRequires:	libtool >= 2:2.2.6
 BuildRequires:	libxslt-progs
 BuildRequires:	pkgconfig >= 1:0.21
 BuildRequires:	tar >= 1:1.22
-%{!?with_bootstrap:BuildRequires:	vala >= 2:0.25.1}
+%{!?with_bootstrap:BuildRequires:	vala >= 2:0.39.5.8}
 BuildRequires:	xz
 Requires:	glib2 >= 1:2.40.0
 Conflicts:	gdk-pixbuf2 < 2.23.3-1
@@ -210,7 +210,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/valadoc/doclets/html
 %attr(755,root,root) %{_libdir}/valadoc/doclets/html/libdoclet.so
 %{_datadir}/valadoc
-%{_mandir}/man1/valadoc-%{major_ver}*
+%{_mandir}/man1/valadoc-%{major_ver}.1*
 %{_mandir}/man1/valadoc.1*
 
 %files -n valadoc-devel
