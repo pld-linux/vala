@@ -2,31 +2,32 @@
 # Conditional build:
 %bcond_with	bootstrap	# bootstrap build
 
-%define	major_ver	0.44
+%define	major_ver	0.46
 Summary:	GObject-based language compiler
 Summary(pl.UTF-8):	Kompilator języka opartego na bibliotece GObject
 Name:		vala
-Version:	0.44.7
+Version:	0.46.0
 Release:	1
 Epoch:		2
 License:	LGPL v2+
 Group:		Development/Languages
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/vala/0.44/%{name}-%{version}.tar.xz
-# Source0-md5:	27fd30535c51af5b87b0e7ffdbd906ef
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/vala/0.46/%{name}-%{version}.tar.xz
+# Source0-md5:	50bf4fecec02104138e9e1cc2fcce2d6
 URL:		https://wiki.gnome.org/Projects/Vala
 BuildRequires:	autoconf >= 2.65
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	bison
 BuildRequires:	flex
-BuildRequires:	glib2-devel >= 1:2.40.0
+BuildRequires:	glib2-devel >= 1:2.48.0
 BuildRequires:	graphviz-devel >= 2.16
+BuildRequires:	help2man
 BuildRequires:	libtool >= 2:2.2.6
 BuildRequires:	libxslt-progs
 BuildRequires:	pkgconfig >= 1:0.21
 BuildRequires:	tar >= 1:1.22
 %{!?with_bootstrap:BuildRequires:	vala >= 2:0.39.5.8}
 BuildRequires:	xz
-Requires:	glib2 >= 1:2.40.0
+Requires:	glib2 >= 1:2.48.0
 Conflicts:	gdk-pixbuf2 < 2.23.3-1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -92,7 +93,7 @@ Narzędzie obsługujące dokumentację dla języka Vala.
 Summary:	Header file for Valadoc library
 Summary(pl.UTF-8):	Plik nagłówkowy biblioteki Valadoc
 Group:		Development/Libraries
-Requires:	glib2-devel >= 1:2.40.0
+Requires:	glib2-devel >= 1:2.48.0
 Requires:	graphviz-devel >= 2.16
 Requires:	valadoc = %{epoch}:%{version}-%{release}
 
@@ -138,11 +139,11 @@ install -d $RPM_BUILD_ROOT%{_datadir}/vala/vapi
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/lib*.la
 
 # loadable modules
-%{__rm} $RPM_BUILD_ROOT%{_libdir}/*/*.la
-%{__rm} $RPM_BUILD_ROOT%{_libdir}/valadoc/*/*/*.la
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/vala-*/lib*.la
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/valadoc-*/doclets/*/libdoclet.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -201,15 +202,15 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/valadoc-%{major_ver}
 %attr(755,root,root) %{_libdir}/libvaladoc-%{major_ver}.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libvaladoc-%{major_ver}.so.0
-%dir %{_libdir}/valadoc
-%dir %{_libdir}/valadoc/doclets
-%dir %{_libdir}/valadoc/doclets/devhelp
-%attr(755,root,root) %{_libdir}/valadoc/doclets/devhelp/libdoclet.so
-%dir %{_libdir}/valadoc/doclets/gtkdoc
-%attr(755,root,root) %{_libdir}/valadoc/doclets/gtkdoc/libdoclet.so
-%dir %{_libdir}/valadoc/doclets/html
-%attr(755,root,root) %{_libdir}/valadoc/doclets/html/libdoclet.so
-%{_datadir}/valadoc
+%dir %{_libdir}/valadoc-%{major_ver}
+%dir %{_libdir}/valadoc-%{major_ver}/doclets
+%dir %{_libdir}/valadoc-%{major_ver}/doclets/devhelp
+%attr(755,root,root) %{_libdir}/valadoc-%{major_ver}/doclets/devhelp/libdoclet.so
+%dir %{_libdir}/valadoc-%{major_ver}/doclets/gtkdoc
+%attr(755,root,root) %{_libdir}/valadoc-%{major_ver}/doclets/gtkdoc/libdoclet.so
+%dir %{_libdir}/valadoc-%{major_ver}/doclets/html
+%attr(755,root,root) %{_libdir}/valadoc-%{major_ver}/doclets/html/libdoclet.so
+%{_datadir}/valadoc-%{major_ver}
 %{_mandir}/man1/valadoc-%{major_ver}.1*
 %{_mandir}/man1/valadoc.1*
 
