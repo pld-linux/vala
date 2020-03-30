@@ -2,17 +2,17 @@
 # Conditional build:
 %bcond_with	bootstrap	# bootstrap build
 
-%define	major_ver	0.46
+%define	major_ver	0.48
 Summary:	GObject-based language compiler
 Summary(pl.UTF-8):	Kompilator języka opartego na bibliotece GObject
 Name:		vala
-Version:	0.46.6
+Version:	0.48.2
 Release:	1
 Epoch:		2
 License:	LGPL v2+
 Group:		Development/Languages
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/vala/0.46/%{name}-%{version}.tar.xz
-# Source0-md5:	d9af125648505503b139ebc2d2c9eee5
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/vala/0.48/%{name}-%{version}.tar.xz
+# Source0-md5:	81bac61d3b77591704b0714f12b69f3f
 URL:		https://wiki.gnome.org/Projects/Vala
 BuildRequires:	autoconf >= 2.65
 BuildRequires:	automake >= 1:1.11
