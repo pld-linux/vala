@@ -6,13 +6,13 @@
 Summary:	GObject-based language compiler
 Summary(pl.UTF-8):	Kompilator języka opartego na bibliotece GObject
 Name:		vala
-Version:	0.50.1
+Version:	0.50.2
 Release:	1
 Epoch:		2
 License:	LGPL v2+
 Group:		Development/Languages
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/vala/0.50/%{name}-%{version}.tar.xz
-# Source0-md5:	42b3120758a8f5c1909627bfa7b017b4
+Source0:	https://download.gnome.org/sources/vala/0.50/%{name}-%{version}.tar.xz
+# Source0-md5:	82e99bbdc5a3a52592872afd317bd7f3
 URL:		https://wiki.gnome.org/Projects/Vala
 BuildRequires:	autoconf >= 2.65
 BuildRequires:	automake >= 1:1.11
@@ -24,6 +24,7 @@ BuildRequires:	help2man
 BuildRequires:	libtool >= 2:2.2.6
 BuildRequires:	libxslt-progs
 BuildRequires:	pkgconfig >= 1:0.21
+BuildRequires:	rpmbuild(macros) >= 1.752
 BuildRequires:	tar >= 1:1.22
 %{!?with_bootstrap:BuildRequires:	vala >= 2:0.39.5.8}
 BuildRequires:	xz
@@ -67,9 +68,7 @@ Summary:	vala API documentation
 Summary(pl.UTF-8):	Dokumentacja API vala
 Group:		Documentation
 Requires:	devhelp
-%if "%{_rpmversion}" >= "4.6"
-BuildArch:	noarch
-%endif
+%{?noarchpackage}
 
 %description apidocs
 vala API documentation.
@@ -109,9 +108,7 @@ Summary(pl.UTF-8):	API języka Vala do biblioteki Valadoc
 Group:		Development/Libraries
 Requires:	vala
 Requires:	valadoc-devel = %{epoch}:%{version}-%{release}
-%if "%{_rpmversion}" >= "4.6"
-BuildArch:	noarch
-%endif
+%{?noarchpackage}
 
 %description -n vala-valadoc
 Vala API for Valadoc library.
