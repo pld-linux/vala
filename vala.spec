@@ -24,6 +24,7 @@ BuildRequires:	help2man
 BuildRequires:	libtool >= 2:2.2.6
 BuildRequires:	libxslt-progs
 BuildRequires:	pkgconfig >= 1:0.21
+BuildRequires:	rpm-build >= 4.6
 BuildRequires:	rpmbuild(macros) >= 1.752
 BuildRequires:	tar >= 1:1.22
 %{!?with_bootstrap:BuildRequires:	vala >= 2:0.39.5.8}
@@ -68,7 +69,7 @@ Summary:	vala API documentation
 Summary(pl.UTF-8):	Dokumentacja API vala
 Group:		Documentation
 Requires:	devhelp
-%{?noarchpackage}
+BuildArch:	noarch
 
 %description apidocs
 vala API documentation.
@@ -108,7 +109,7 @@ Summary(pl.UTF-8):	API języka Vala do biblioteki Valadoc
 Group:		Development/Libraries
 Requires:	vala
 Requires:	valadoc-devel = %{epoch}:%{version}-%{release}
-%{?noarchpackage}
+BuildArch:	noarch
 
 %description -n vala-valadoc
 Vala API for Valadoc library.
