@@ -2,6 +2,7 @@
 # Conditional build:
 %bcond_with	bootstrap	# bootstrap build
 %bcond_without	valadoc		# valadoc
+%bcond_without	apidocs		# apidocs
 
 %define	major_ver	0.56
 Summary:	GObject-based language compiler
@@ -144,6 +145,7 @@ install -d $RPM_BUILD_ROOT%{_datadir}/vala/vapi
 # loadable modules
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/vala-*/lib*.la
 %{?with_valadoc:%{__rm} $RPM_BUILD_ROOT%{_libdir}/valadoc-*/doclets/*/libdoclet.la}
+%{!?with_apidocs:%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/devhelp/books/vala-%{major_ver}}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -192,9 +194,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_aclocaldir}/vala.m4
 %{_aclocaldir}/vapigen.m4
 
+%if %{with apidocs}
 %files apidocs
 %defattr(644,root,root,755)
 %{_datadir}/devhelp/books/vala-%{major_ver}
+%endif
 
 %if %{with valadoc}
 %files -n valadoc
