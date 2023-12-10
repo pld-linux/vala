@@ -1,6 +1,7 @@
 #
 # Conditional build:
 %bcond_with	bootstrap	# bootstrap build
+%bcond_without	valadoc		# valadoc
 
 %define	major_ver	0.56
 Summary:	GObject-based language compiler
@@ -19,7 +20,7 @@ BuildRequires:	automake >= 1:1.11
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	glib2-devel >= 1:2.48.0
-BuildRequires:	graphviz-devel >= 2.16
+%{?with_valadoc:BuildRequires:	graphviz-devel >= 2.16}
 BuildRequires:	help2man
 BuildRequires:	libtool >= 2:2.2.6
 BuildRequires:	libxslt-progs
@@ -127,7 +128,8 @@ API języka Vala do biblioteki Valadoc.
 %{__autoheader}
 %{__automake}
 %configure \
-	--disable-silent-rules
+	--disable-silent-rules \
+	%{!?with_valadoc:--disable-valadoc}
 %{__make}
 
 %install
@@ -141,7 +143,7 @@ install -d $RPM_BUILD_ROOT%{_datadir}/vala/vapi
 
 # loadable modules
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/vala-*/lib*.la
-%{__rm} $RPM_BUILD_ROOT%{_libdir}/valadoc-*/doclets/*/libdoclet.la
+%{?with_valadoc:%{__rm} $RPM_BUILD_ROOT%{_libdir}/valadoc-*/doclets/*/libdoclet.la}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -194,6 +196,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_datadir}/devhelp/books/vala-%{major_ver}
 
+%if %{with valadoc}
 %files -n valadoc
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/valadoc
@@ -222,3 +225,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_datadir}/vala/vapi/valadoc-%{major_ver}.deps
 %{_datadir}/vala/vapi/valadoc-%{major_ver}.vapi
+%endif
