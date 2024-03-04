@@ -21,6 +21,7 @@ BuildRequires:	automake >= 1:1.11
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	glib2-devel >= 1:2.48.0
+BuildRequires:	gobject-introspection-devel
 %{?with_valadoc:BuildRequires:	graphviz-devel >= 2.16}
 BuildRequires:	help2man
 BuildRequires:	libtool >= 2:2.2.6
