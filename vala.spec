@@ -8,13 +8,13 @@
 Summary:	GObject-based language compiler
 Summary(pl.UTF-8):	Kompilator języka opartego na bibliotece GObject
 Name:		vala
-Version:	0.56.18
+Version:	0.56.19
 Release:	1
 Epoch:		2
 License:	LGPL v2+
 Group:		Development/Languages
 Source0:	https://download.gnome.org/sources/vala/0.56/%{name}-%{version}.tar.xz
-# Source0-md5:	14238ac89810b932db9fd75999739494
+# Source0-md5:	a2dc825de503fad703584cfb0ed50302
 URL:		https://wiki.gnome.org/Projects/Vala
 BuildRequires:	autoconf >= 2.65
 BuildRequires:	automake >= 1:1.11
@@ -168,9 +168,9 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/valac-%{major_ver}
 %attr(755,root,root) %{_bindir}/vapigen
 %attr(755,root,root) %{_bindir}/vapigen-%{major_ver}
-%attr(755,root,root) %{_libdir}/libvala-%{major_ver}.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libvala-%{major_ver}.so.0
-%attr(755,root,root) %{_libdir}/libvala-%{major_ver}.so
+%{_libdir}/libvala-%{major_ver}.so.*.*.*
+%ghost %{_libdir}/libvala-%{major_ver}.so.0
+%{_libdir}/libvala-%{major_ver}.so
 %{_includedir}/vala-%{major_ver}
 %{_pkgconfigdir}/libvala-%{major_ver}.pc
 %{_pkgconfigdir}/vapigen-%{major_ver}.pc
@@ -185,7 +185,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/vala-%{major_ver}/vapi/*.deps
 %dir %{_libdir}/vala-%{major_ver}
 %attr(755,root,root) %{_libdir}/vala-%{major_ver}/gen-introspect-%{major_ver}
-%attr(755,root,root) %{_libdir}/vala-%{major_ver}/libvalaccodegen.so
+%{_libdir}/vala-%{major_ver}/libvalaccodegen.so
 %{_mandir}/man1/vala-gen-introspect.1*
 %{_mandir}/man1/vala-gen-introspect-%{major_ver}.1*
 %{_mandir}/man1/valac.1*
@@ -206,23 +206,23 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/valadoc
 %attr(755,root,root) %{_bindir}/valadoc-%{major_ver}
-%attr(755,root,root) %{_libdir}/libvaladoc-%{major_ver}.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libvaladoc-%{major_ver}.so.0
+%{_libdir}/libvaladoc-%{major_ver}.so.*.*.*
+%ghost %{_libdir}/libvaladoc-%{major_ver}.so.0
 %dir %{_libdir}/valadoc-%{major_ver}
 %dir %{_libdir}/valadoc-%{major_ver}/doclets
 %dir %{_libdir}/valadoc-%{major_ver}/doclets/devhelp
-%attr(755,root,root) %{_libdir}/valadoc-%{major_ver}/doclets/devhelp/libdoclet.so
+%{_libdir}/valadoc-%{major_ver}/doclets/devhelp/libdoclet.so
 %dir %{_libdir}/valadoc-%{major_ver}/doclets/gtkdoc
-%attr(755,root,root) %{_libdir}/valadoc-%{major_ver}/doclets/gtkdoc/libdoclet.so
+%{_libdir}/valadoc-%{major_ver}/doclets/gtkdoc/libdoclet.so
 %dir %{_libdir}/valadoc-%{major_ver}/doclets/html
-%attr(755,root,root) %{_libdir}/valadoc-%{major_ver}/doclets/html/libdoclet.so
+%{_libdir}/valadoc-%{major_ver}/doclets/html/libdoclet.so
 %{_datadir}/valadoc-%{major_ver}
 %{_mandir}/man1/valadoc-%{major_ver}.1*
 %{_mandir}/man1/valadoc.1*
 
 %files -n valadoc-devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libvaladoc-%{major_ver}.so
+%{_libdir}/libvaladoc-%{major_ver}.so
 %{_includedir}/valadoc-%{major_ver}
 %{_pkgconfigdir}/valadoc-%{major_ver}.pc
 
